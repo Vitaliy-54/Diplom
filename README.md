@@ -1,67 +1,340 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Neocalc — Веб-приложение для изучения излучательных переходов иона Nd³⁺
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![PHP Version](https://img.shields.io/badge/PHP-8.1%2B-777BB4?style=flat&logo=php)](https://php.net)
+[![Laravel Version](https://img.shields.io/badge/Laravel-11-FF2D20?style=flat&logo=laravel)](https://laravel.com)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat&logo=mysql)](https://mysql.com)
+[![Livewire](https://img.shields.io/badge/Livewire-3-4FB1A1?style=flat)](https://livewire.laravel.com)
+[![License](https://img.shields.io/badge/License-Proprietary-red?style=flat)](LICENSE)
 
-## About Laravel
+## 📌 О проекте
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Neocalc** — это научно-образовательное веб-приложение для моделирования и анализа излучательных переходов иона Nd³⁺ (неодима). Система позволяет исследователям, преподавателям и студентам выполнять расчёты параметров излучательных переходов, оптимизировать коэффициенты по экспериментальным данным, а также вести базу знаний с заметками, комментариями и справочными материалами.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Проект разработан в рамках дипломной работы и ориентирован на использование в учебных и научно-исследовательских целях.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🚀 Основные возможности
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 🔬 Калькулятор Nd³⁺
+- Расчёт вероятностей излучательных переходов и радиационного времени жизни
+- Визуализация зависимости времени жизни от температуры (графики Chart.js)
+- Поддержка мультиплетов: ⁴F₃/₂, ⁴J₉/₂, ⁴J₁₁/₂
+- Экспорт результатов в CSV
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 📊 Оптимизация параметров
+- Оптимизация коэффициентов J9C, J11C и Kc по экспериментальным данным
+- Автоматический расчёт суммы квадратов отклонений и среднеквадратичной ошибки
+- Таблица сравнения параметров с процентным изменением
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 📚 База знаний
+- Создание и редактирование заметок с форматированием (CKEditor)
+- Прикрепление файлов к заметкам
+- Теги для категоризации
+- Публичные и приватные заметки
+- Комментарии с древовидной структурой
+- Система реакций (лайки, дизлайки, сердечки, смайлы)
 
-## Laravel Sponsors
+### 🔐 Аутентификация и безопасность
+- Стандартная сессионная аутентификация (Laravel)
+- **WebAuthn (Passkeys)** — беcпарольный вход по биометрии (отпечаток пальца, Face ID, PIN-код)
+- Подтверждение email через OTP-код (6 цифр, срок действия 30 минут)
+- Ролевая модель RBAC (user / admin)
+- Аудит действий пользователей (логины, посещения страниц, IP-адреса)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 🔗 Публичные ссылки
+- Генерация публичных ссылок на расчёты
+- Защита паролем и ограничение срока действия
+- Статистика просмотров
+- QR-код для быстрого доступа
+- Возможность копирования расчётов другими пользователями
 
-### Premium Partners
+### 📈 Администрирование
+- Управление пользователями
+- Модерация заметок и комментариев
+- Просмотр статистики активности
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+---
 
-## Contributing
+## 🛠 Технологический стек
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Backend
+| Технология | Назначение |
+|------------|------------|
+| **PHP 8.1+** | Язык программирования |
+| **Laravel 11** | Основной фреймворк |
+| **Laravel WebAuthn** | Беcпарольная аутентификация |
+| **MySQL 8.0** | Реляционная база данных |
+| **Eloquent ORM** | Объектно-реляционное отображение |
+| **Laravel Queues / Jobs** | Асинхронная обработка |
+| **Laravel Policies** | Разграничение прав доступа |
 
-## Code of Conduct
+### Frontend
+| Технология | Назначение |
+|------------|------------|
+| **Laravel Blade** | Шаблонизатор |
+| **Livewire 3** | Динамические компоненты |
+| **Alpine.js** | Интерактивные элементы |
+| **Tailwind CSS / Bootstrap 5** | Адаптивный дизайн |
+| **Chart.js** | Визуализация графиков |
+| **Axios** | HTTP-запросы |
+| **CKEditor 4** | WYSIWYG-редактор |
+| **Highlight.js** | Подсветка синтаксиса |
+| **QRCode.js** | Генерация QR-кодов |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Инструменты разработки
+| Инструмент | Назначение |
+|------------|------------|
+| **Visual Studio Code** | Среда разработки |
+| **Composer** | Менеджер зависимостей PHP |
+| **NPM** | Менеджер пакетов JavaScript |
+| **Git / GitHub** | Система контроля версий |
 
-## Security Vulnerabilities
+### Тестирование
+| Инструмент | Назначение |
+|------------|------------|
+| **Pest PHP (PHPUnit)** | Модульное и функциональное тестирование |
+| **Laravel Testing Suite** | Утилиты тестирования |
+| **Livewire Testing** | Тестирование Livewire-компонентов |
+| **DatabaseTransactions / RefreshDatabase** | Управление состоянием БД в тестах |
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 📁 Структура проекта
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# Diplom" 
+```
+neocalc/
+├── app/
+│   ├── Console/
+│   │   └── Commands/                # Пользовательские команды Artisan
+│   ├── Exceptions/                  # Обработчики исключений
+│   ├── Http/
+│   │   ├── Controllers/             # Контроллеры
+│   │   │   ├── Auth/                # Контроллеры аутентификации
+│   │   │   └── Admin/               # Административные контроллеры
+│   │   ├── Middleware/              # Middleware (auth, IsAdmin, TrackUserActivity)
+│   │   ├── Livewire/                # Livewire-компоненты
+│   │   │   ├── Comments/            # Компоненты комментариев
+│   │   │   ├── Notes/               # Компоненты заметок
+│   │   │   └── Notifications/       # Компонент уведомлений
+│   │   └── Requests/                # Form Request-классы валидации
+│   ├── Models/                      # Модели Eloquent
+│   │   ├── User.php                 # Модель пользователя
+│   │   ├── Note.php                 # Модель заметки
+│   │   ├── Tag.php                  # Модель тега
+│   │   ├── Comment.php              # Модель комментария
+│   │   ├── Task.php                 # Модель задачи
+│   │   └── ...
+│   ├── Notifications/               # Кастомные уведомления
+│   │   ├── CustomVerifyEmail.php    # Уведомление верификации email
+│   │   └── CustomPasswordReset.php  # Уведомление сброса пароля
+│   ├── Policies/                    # Политики авторизации
+│   │   └── CommentPolicy.php        # Политика для комментариев
+│   └── Services/                    # Бизнес-логика (Сервисный слой)
+│       ├── Nd3CalculatorService.php     # Расчёты Nd³⁺
+│       ├── Nd3OptimizationService.php   # Оптимизация Nd³⁺
+│       ├── Ho3CalculatorService.php     # Расчёты Ho³⁺
+│       ├── Ho3OptimizationService.php   # Оптимизация Ho³⁺
+│       └── NoteService.php              # Управление заметками
+│
+├── bootstrap/
+│   ├── app.php                    # Инициализация приложения
+│   └── cache/                     # Кэш конфигурации
+│
+├── config/                        # Конфигурационные файлы
+│   ├── app.php
+│   ├── auth.php
+│   ├── database.php
+│   ├── cache.php
+│   └── ...
+│
+├── database/
+│   ├── factories/                 # Фабрики для генерации тестовых данных
+│   ├── migrations/                # Миграции базы данных
+│   │   ├── 0001_01_01_000000_create_users_table.php
+│   │   ├── 0001_01_01_000001_create_notes_table.php
+│   │   └── ...
+│   ├── seeders/                   # Начальные данные (сиды)
+│   │   ├── DatabaseSeeder.php
+│   │   ├── UserSeeder.php
+│   │   └── TagSeeder.php
+│   └── sql/                       # SQL-дампы (опционально)
+│
+├── public/                        # Публичные файлы (точка входа)
+│   ├── index.php                  # Точка входа в приложение
+│   ├── .htaccess                  # Конфигурация веб-сервера
+│   ├── css/                       # Скомпилированные CSS-файлы
+│   ├── js/                        # Скомпилированные JavaScript-файлы
+│   ├── images/                    # Изображения
+│   └── storage/                   # Публично доступные файлы
+│       └── avatars/               # Аватары пользователей
+│
+├── resources/
+│   ├── views/                     # Blade-шаблоны
+│   │   ├── layouts/
+│   │   │   └── app.blade.php      # Основной макет
+│   │   ├── auth/                  # Шаблоны аутентификации
+│   │   │   ├── login.blade.php
+│   │   │   ├── register.blade.php
+│   │   │   ├── verify-email.blade.php
+│   │   │   └── reset-password.blade.php
+│   │   ├── notes/                 # Шаблоны заметок
+│   │   │   ├── index.blade.php
+│   │   │   ├── show.blade.php
+│   │   │   ├── create.blade.php
+│   │   │   └── edit.blade.php
+│   │   ├── calculator/            # Шаблоны калькулятора
+│   │   │   ├── nd3.blade.php
+│   │   │   └── ho3.blade.php
+│   │   ├── profile/               # Шаблоны профиля
+│   │   ├── admin/                 # Административные шаблоны
+│   │   └── components/            # Переиспользуемые компоненты
+│   └── lang/                      # Файлы локализации
+│       └── en/
+│
+├── routes/
+│   ├── web.php                    # Веб-маршруты
+│   ├── api.php                    # API-маршруты
+│   ├── console.php                # Консольные маршруты
+│   └── channels.php               # WebSocket-маршруты
+│
+├── storage/                       # Хранилище файлов
+│   ├── app/
+│   │   ├── public/                # Публичные загрузки
+│   │   │   ├── files/             # Прикреплённые файлы к заметкам
+│   │   │   └── literature/        # Справочные материалы
+│   │   └── private/               # Приватные файлы
+│   ├── framework/                 # Кэш, сессии, представления
+│   └── logs/                      # Логи приложения
+│
+├── tests/                         # Модульные и функциональные тесты
+│   ├── Feature/
+│   │   ├── Auth/
+│   │   │   ├── AuthenticationTest.php
+│   │   │   └── EmailVerificationTest.php
+│   │   ├── Notes/
+│   │   │   └── NoteTest.php
+│   │   └── ...
+│   └── Unit/
+│       ├── Models/
+│       │   └── UserTest.php
+│       └── Services/
+│           ├── Nd3CalculatorServiceTest.php
+│           ├── Nd3OptimizationServiceTest.php
+│           └── NoteServiceTest.php
+│
+├── .env                           # Переменные окружения
+├── .env.example                   # Пример переменных окружения
+├── .gitignore                     # Исключения Git
+├── composer.json                  # Зависимости PHP
+├── composer.lock                  # Lock-файл Composer
+├── package.json                   # Зависимости JavaScript
+├── package-lock.json              # Lock-файл NPM
+├── vite.config.js                 # Конфигурация Vite (сборщик)
+├── tailwind.config.js             # Конфигурация Tailwind CSS
+├── phpunit.xml                    # Конфигурация PHPUnit
+├── artisan                        # Консольный интерфейс Laravel
+└── README.md                      # Описание проекта
+```
+
+---
+
+## 📊 Заметки
+
+Основные таблицы:
+
+| Таблица | Назначение |
+|---------|------------|
+| `users` | Пользователи системы |
+| `web_authn_credentials` | WebAuthn-ключи (Passkeys) |
+| `nd3_calculation_history` | История расчётов Nd³⁺ |
+| `ho_calculation_history` | История расчётов Ho³⁺ |
+| `calculation_share_links` | Публичные ссылки на расчёты |
+| `notes` | Заметки базы знаний |
+| `tags` / `note_tag` | Теги для категоризации заметок |
+| `comments` | Комментарии (поддержка вложенности) |
+| `note_reactions` / `comment_reactions` | Реакции пользователей |
+| `tasks` | Персональные задачи пользователя |
+| `user_statistic` / `user_logs` | Аудит активности |
+
+> Подробная ER-диаграмма представлена в документации.
+
+---
+
+## 🧪 Тестирование
+
+Проект покрыт модульными и функциональными тестами:
+
+| Класс тестов | Кол-во тестов | Описание |
+|--------------|---------------|----------|
+| `AuthenticationTest` | 3 | Вход с корректными/некорректными данными, выход |
+| `EmailVerificationTest` | 3 | Отправка кода, успешная верификация, отклонение |
+| `UserTest` | 4 | Создание, роли, кэш, связи |
+| `Nd3CalculatorServiceTest` | 7 | Арифметика, исключения |
+| `Nd3OptimizationServiceTest` | 2 | Оптимизация, ошибки |
+| `NoteServiceTest` | 4 | CRUD заметок |
+| `VolumeTestingTest` | 1 | Объёмное тестирование производительности |
+
+### Запуск тестов
+```bash
+php artisan test
+# или
+vendor/bin/pest
+```
+
+## 🚀 Установка и запуск
+
+### Требования
+
+- PHP 8.1+
+- Composer
+- MySQL 8.0+
+- Node.js & NPM
+
+### Инструкция
+
+```bash
+# 1. Клонирование репозитория
+git clone https://github.com/yourusername/neocalc.git
+cd neocalc
+
+# 2. Установка зависимостей PHP
+composer install
+
+# 3. Установка зависимостей JavaScript
+npm install
+
+# 4. Компиляция assets
+npm run build
+
+# 5. Настройка окружения
+cp .env.example .env
+php artisan key:generate
+
+# 6. Настройка базы данных в .env
+# DB_CONNECTION=mysql
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE=neocalc
+# DB_USERNAME=root
+# DB_PASSWORD=
+
+# 7. Запуск миграций и сидеров
+php artisan migrate --seed
+
+# 8. Запуск сервера разработки
+php artisan serve
+```
+
+## 📄 Лицензия
+
+Проект разработан в рамках дипломной работы. Все права защищены.
+
+---
+
+## 👤 Автор
+
+**Андреев Виталий, группа ИТ-12**
+
+[![GitHub](https://img.shields.io/badge/GitHub-@Vitaliy--54-181717?style=flat&logo=github)](https://github.com/Vitaliy-54)
+[![Email](https://img.shields.io/badge/Email-andreev.vstu@gmail.com-EA4335?style=flat&logo=gmail)](mailto:andreev.vstu@gmail.com)
