@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Контейнер ответов */
+.replies-thread {
+    padding-left: 28px;
+    position: relative;
+}
+
+/* Каждый reply-item */
+.reply-item {
+    position: relative;
+    margin-top: 12px;
+    padding-left: 0;
+}
+
+.reply-item:first-child {
+    margin-top: 0;
+}
+
+/* Вертикальная линия */
+.reply-item::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0;
+    bottom: -12px;
+    width: 2px;
+    background: #9d9d9e;
+    border-radius: 0;
+}
+
+.dark .reply-item::before {
+    background: #717171;
+}
+
+/* Горизонтальный соединитель */
+.reply-item::after {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 16px;
+    width: 16px;
+    height: 14px;
+    border-left: 2px solid #9d9d9e;
+    border-bottom: 2px solid #9d9d9e;
+    border-bottom-left-radius: 12px;
+    pointer-events: none;
+}
+
+.dark .reply-item::after {
+    border-color: #717171;
+}
+
+/* Для последнего ответа */
+.reply-item:last-child::before {
+    bottom: auto;
+    height: 16px;
+}
+
+/* Кнопка скрыть ответы */
+.hide-replies-row {
+    position: relative;
+    margin-top: 12px;
+    padding-left: 0;
+}
+
+/* Вертикальная линия для кнопки */
+.hide-replies-row::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0px;
+    width: 2px;
+    height: 12px;
+    background: #9d9d9e;
+    border-radius: 0;
+}
+
+.dark .hide-replies-row::before {
+    background: #717171;
+}
+
+/* Горизонтальный соединитель для кнопки */
+.hide-replies-row::after {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 8px;
+    width: 24px;
+    height: 12px;
+    border-left: 2px solid #9d9d9e;
+    border-bottom: 2px solid #9d9d9e;
+    border-bottom-left-radius: 10px;
+    pointer-events: none;
+}
+
+.dark .hide-replies-row::after {
+    border-color: #717171;
+}
+
+/* Отступ для кнопки */
+.hide-replies-row button {
+    margin-left: 18px;
+}
+
+/* Контейнер ответов */
+.replies-container {
+    margin-top: 12px;
+    animation: fadeSlideIn 0.15s ease-out;
+}
+
+.replies-container.hidden {
+    display: none;
+}
+
+/* Подсветка упоминаний в комментариях */
+.comment-content .mention {
+    color: #3b82f6;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.comment-content .mention:hover {
+    text-decoration: underline;
+}
+
+.dark .comment-content .mention {
+    color: #60a5fa;
+}
+
+.reply-to-info {
+    position: relative;
+}
+
+.reply-hint {
+    font-size: 0.7rem;
+    color: #3b82f6;
+    margin-top: 4px;
+}
+
+.dark .reply-hint {
+    color: #60a5fa;
+}
+
+/* Подсветка комментария при переходе */
+.comment-item.highlight {
+    animation: highlight-pulse 0.5s ease-in-out 3;
+    position: relative;
+}
+
+.comment-item.highlight::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes highlight-pulse {
+    0% {
+        background-color: rgba(59, 130, 246, 0);
+    }
+    50% {
+        background-color: rgba(59, 130, 246, 0.2);
+    }
+    100% {
+        background-color: rgba(59, 130, 246, 0);
+    }
+}
+
+.dark .comment-item.highlight::before {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+@keyframes highlight-pulse-dark {
+    0% {
+        background-color: rgba(59, 130, 246, 0);
+    }
+    50% {
+        background-color: rgba(59, 130, 246, 0.3);
+    }
+    100% {
+        background-color: rgba(59, 130, 246, 0);
+    }
+}
+
+/* Плавная прокрутка */
+html {
+    scroll-behavior: smooth;
+}
+
+@keyframes fadeSlideIn {
+    from { opacity: 0; transform: translateY(-3px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
